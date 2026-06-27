@@ -31,7 +31,7 @@ const Landing = ({ children }: PropsWithChildren) => {
           </div>
           {/* Mobile photo - shows only on mobile when 3D character is hidden */}
           <div className="mobile-photo">
-            <img src="/images/mypicnbg.png" alt="Alokit Mishra" />
+            <img src="/images/mypicnbg.webp" alt="Alokit Mishra" loading="eager" decoding="async" />
           </div>
         </div>
         {children}
