@@ -10,6 +10,8 @@ const MyWorks = lazy(() => import("./pages/MyWorks"));
 
 import { LoadingProvider } from "./context/LoadingProvider";
 
+const isMobile = window.innerWidth <= 768;
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -20,9 +22,11 @@ const App = () => {
             <LoadingProvider>
               <Suspense>
                 <MainContainer>
-                  <Suspense>
-                    <CharacterModel />
-                  </Suspense>
+                  {!isMobile && (
+                    <Suspense>
+                      <CharacterModel />
+                    </Suspense>
+                  )}
                 </MainContainer>
               </Suspense>
             </LoadingProvider>
