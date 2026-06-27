@@ -167,7 +167,7 @@ contact: {
   github: "https://github.com/alokitm",
   linkedin: "https://linkedin.com/in/alokitmishra",
   twitter: "",
-  instagram: "",
+  instagram: "https://www.instagram.com/alokit_mishra",
   resume: "/resume.pdf"
 },
 skills: {
