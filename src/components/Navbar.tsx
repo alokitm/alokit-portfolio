@@ -4,8 +4,10 @@ import HoverLinks from "./HoverLinks";
 import { gsap } from "gsap";
 import Lenis from "lenis";
 import "./styles/Navbar.css";
+import { config } from "../config";
 
 gsap.registerPlugin(ScrollTrigger);
+
 export let lenis: Lenis | null = null;
 
 const Navbar = () => {
@@ -34,15 +36,20 @@ const Navbar = () => {
 
     // Handle navigation links
     let links = document.querySelectorAll(".header ul a");
+
     links.forEach((elem) => {
       let element = elem as HTMLAnchorElement;
+
       element.addEventListener("click", (e) => {
         if (window.innerWidth > 1024) {
           e.preventDefault();
+
           let elem = e.currentTarget as HTMLAnchorElement;
           let section = elem.getAttribute("data-href");
+
           if (section && lenis) {
             const target = document.querySelector(section) as HTMLElement;
+
             if (target) {
               lenis.scrollTo(target, {
                 offset: 0,
@@ -63,30 +70,35 @@ const Navbar = () => {
       lenis?.destroy();
     };
   }, []);
+
   return (
     <>
       <div className="header">
         <a href="/#" className="navbar-title" data-cursor="disable">
-          RH
+          AM
         </a>
+
         <a
-          href="mailto:redoyanul1234@gmail.com"
+          href={`mailto:${config.contact.email}`}
           className="navbar-connect"
           data-cursor="disable"
         >
-          redoyanul1234@gmail.com
+          {config.contact.email}
         </a>
+
         <ul>
           <li>
             <a data-href="#about" href="#about">
               <HoverLinks text="ABOUT" />
             </a>
           </li>
+
           <li>
             <a data-href="#work" href="#work">
-              <HoverLinks text="WORK" />
+              <HoverLinks text="PROJECTS" />
             </a>
           </li>
+
           <li>
             <a data-href="#contact" href="#contact">
               <HoverLinks text="CONTACT" />
